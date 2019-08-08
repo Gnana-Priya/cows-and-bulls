@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cows and Bulls</title>
+		<link type="text/css" rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class = "home">
+			<center><h1>Cows And Bulls</h1></center>
+			<center><h4>Minimum no of attempts<div id = "top-score"></div></h4></center>
+			<center>
+				<button class = "button1" id = "easy">
+					<h4>Easy</h4>
+				</button>
+			</center>
+			<br>
+			<center>
+				<button class = "button2" id = "medium">
+					<h4>Medium</h4>
+				</button>
+			</center>
+			<br>
+			<center>
+				<button class = "button3" id = "difficult">
+					<h4>Difficult</h4>
+				</button>
+			</center>		
+		</div>
+		<div class = "game">
+			Enter the number:
+			<input type="text" name="number" id="number"/>
+			<button id ="submit">SUBMIT</button>
+			<div id="cows">Cows: 0</div>
+	        <div id="bulls">Bulls: 0</div>
+	        <br>
+	        <button id ="choose-level">Choose Level</button>
+	        <br><br>
+	        <div class="history">
+	        	<table id = "table">
+				  <thead id = 'table-header'>
+				    <th>Attempt</th>
+				    <th>Number</th>
+				    <th>Cows</th>
+				    <th>Bulls</th>
+				  </thead>
+				  <tbody id = 'tbody'></tbody>
+				</table>
+	        </div>
+	    </div>
+	</body>
+	<script src = 'script.js'></script>
+</html>
