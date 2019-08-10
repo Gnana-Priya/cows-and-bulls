@@ -3,50 +3,73 @@
 	<head>
 		<title>Cows and Bulls</title>
 		<link type="text/css" rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	</head>
-	<body>
-		<div class = "home">
-			<center><h1>Cows And Bulls</h1></center>
-			<center><h4>Minimum no of attempts<div id = "top-score"></div></h4></center>
-			<center>
-				<button class = "button1" id = "easy">
-					<h4>Easy</h4>
-				</button>
-			</center>
-			<br>
-			<center>
-				<button class = "button2" id = "medium">
-					<h4>Medium</h4>
-				</button>
-			</center>
-			<br>
-			<center>
-				<button class = "button3" id = "difficult">
-					<h4>Difficult</h4>
-				</button>
-			</center>		
+	<body class = "background-color">
+		<div>
+			<div class = "home">
+				<div class = "game-title">
+					<center>
+						<!-- <h1>Cows And Bulls</h1> -->
+						<img src="assets/cows&bulls.jpeg">
+					</center>
+				</div>
+				<br>
+				<center><h4>Minimum no of attempts<div id = "top-score"></div></h4></center>
+				<br>
+				<center>
+					<button class="btn btn-primary min-width" id = "easy">
+						<h4>Easy</h4>
+					</button>
+				</center>
+				<br>
+				<center>
+					<button class="btn btn-primary min-width" id = "medium">
+						<h4>Medium</h4>
+					</button>
+				</center>
+				<br>
+				<center>
+					<button class="btn btn-primary min-width" id = "difficult">
+						<h4>Difficult</h4>
+					</button>
+				</center>
+			</div>
+			<div class = "game">
+				<!-- <form> -->
+				<center>
+					<!-- <h3 id = "level">Easy</h3> -->
+					<!-- <div class = "right-align"> -->
+						<!-- <button id ="choose-level" class="btn btn-primary bg-dark">Choose Level</button><br><br><br> -->
+					<!-- </div><br><br><br> -->
+					<img src="assets/cows&bulls.jpeg"><br>
+					<h4><b><div id = "input-number">Enter the number:</div></b><br></h4>
+					<input type="number" name="number" id="nos"/>
+					<!-- <button id ="submit" class="btn btn-primary bg-dark" src="assets/press.jpeg">SUBMIT</button> -->
+					<input type="image" src="assets/press.jpeg" id="submit" width = "30" height="35" align = "middle"/>
+					<div id="cows">Cows: 0</div>
+					<div id="bulls">Bulls: 0</div>
+					<br>
+					<button id ="choose-level" class="btn btn-primary bg-dark">Choose Level</button>
+					<br><br>
+					<div class="history">
+						<table class="tab">
+							<thead id = 'table-header'>
+								<th>Attempt</th>
+								<th>Number</th>
+								<th>Cows</th>
+								<th>Bulls</th>
+							</thead>
+							<tbody id = 'tbody'></tbody>
+						</table>
+					</center>
+					<!-- </form> -->
+				</div>
+			</div>
 		</div>
-		<div class = "game">
-			Enter the number:
-			<input type="text" name="number" id="number"/>
-			<button id ="submit">SUBMIT</button>
-			<div id="cows">Cows: 0</div>
-	        <div id="bulls">Bulls: 0</div>
-	        <br>
-	        <button id ="choose-level">Choose Level</button>
-	        <br><br>
-	        <div class="history">
-	        	<table id = "table">
-				  <thead id = 'table-header'>
-				    <th>Attempt</th>
-				    <th>Number</th>
-				    <th>Cows</th>
-				    <th>Bulls</th>
-				  </thead>
-				  <tbody id = 'tbody'></tbody>
-				</table>
-	        </div>
-	    </div>
 	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src = 'script.js'></script>
 </html>

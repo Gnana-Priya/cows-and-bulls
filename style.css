@@ -19,10 +19,54 @@
   transform: translateY(4px);
 }
 
+.home {
+  padding: 10% 0;
+}
+
 .game {
   display: none;
+  /* margin: auto;
+  width: 50%; */
+  /* border: 3px solid green; */
+  /* padding: 10px; */
+  padding: 10% 0;
 }
 
 .history {
   display: none;
+}
+
+.min-width {
+  min-width: 150px;
+}
+
+.game-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.background-color {
+  background: lavender;
+}
+
+/* table, td, th { */
+  /* border: 1px solid black; */
+  /* border-spacing: 20px 10px; */
+  /* border-collapse: separate;
+  border-spacing: 0;
+} */
+
+.tab {
+  border-collapse: separate;
+  border-spacing: 10px 10px;
+}
+
+.btn-style {
+  color: black;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.right-align {
+  float: right;
+  margin-right: 20%;
 }

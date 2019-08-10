@@ -6,12 +6,17 @@ document.getElementById('easy').addEventListener('click', function() {
 	document.querySelector('.game').style.display = 'block';
 	max = 999;
 	min = 100;
+	document.getElementById("input-number").textContent = 'Guess the secret 3 digit number';
+	// document.getElementById("level").textContent = 'Level : Easy';
+	document.getElementById("nos").placeholder = 'Enter 3 digit number';
 	init();
 })
 
 document.getElementById('medium').addEventListener('click', function() {
 	document.querySelector('.home').style.display = 'none';
 	document.querySelector('.game').style.display = 'block';
+	document.getElementById("input-number").textContent = 'Guess the secret 4 digit number';
+	document.getElementById("nos").placeholder = 'Enter 4 digit number';
 	max = 9999;
 	min = 1000;
 	init();
@@ -20,6 +25,8 @@ document.getElementById('medium').addEventListener('click', function() {
 document.getElementById('difficult').addEventListener('click', function() {
 	document.querySelector('.home').style.display = 'none';
 	document.querySelector('.game').style.display = 'block';
+	document.getElementById("input-number").textContent = 'Guess the secret 5 digit number';
+	document.getElementById("nos").placeholder = 'Enter 5 digit number';
 	max = 99999;
 	min = 10000;
 	init();
@@ -29,16 +36,44 @@ document.getElementById('choose-level').addEventListener('click', function() {
     reset();
 })
 
+// var inp = document.getElementById('number');
+// 	console.log(inp);
+// 	inp.addEventListener('keyup', function(e) {
+// 		$("#number").attr({
+// 			"max" : 10,
+// 			"min" : 2
+// 		 });
+// 		console.log('num');
+		// var num = parseInt(this.value, 10);
+		// 	console.log(num);
+		// 	console.log(min + ' ' + max);
+		// 	// min = 0,
+		// 	// max = 100;
+	
+		// if (isNaN(num)) {
+		// 	this.value = "";
+		// 	return false;
+		// }
+	
+		// this.value = Math.max(num, min);
+		// this.value = Math.min(num, max);
+	// });
+
+	// $("#number").attr({
+	// 	"max" : max,
+	// 	"min" : min
+	//  });
+
 document.getElementById('submit').addEventListener('click', function() {
 	noOfCows = 0;
 	noOfBulls = 0;
-	noOfAttempts++;
 
 	console.log(actualNumber);
 	console.log(noOfAttempts);
 
-	var input = document.getElementById('number').value;
+	var input = document.getElementById('nos').value;
 	if (actualNumber == input) {
+		noOfAttempts++;
 		alert('Hurray!!! You won this game in ' + noOfAttempts + ' attempts');
 		document.querySelector('.home').style.display = 'block';
 		document.querySelector('.game').style.display = 'none';
@@ -51,9 +86,18 @@ document.getElementById('submit').addEventListener('click', function() {
 	}
 
 	else {
+        console.log('check');
     	var inputDigits = [],
-        inputNumber = input.toString();
+		inputNumber = input.toString();
+		
+		if (inputNumber < min
+			|| inputNumber > max 
+		) {
+			alert ("Please enter a valid number");
+			return;
+		}
 
+		noOfAttempts++;
     	for (var i = 0, len = inputNumber.length; i < len; i += 1) {
     	    inputDigits.push(+inputNumber.charAt(i));
     	}
@@ -92,7 +136,39 @@ document.getElementById('submit').addEventListener('click', function() {
         cell1.innerHTML = noOfAttempts;
         cell2.innerHTML = inputNumber;
         cell3.innerHTML = noOfCows;
-        cell4.innerHTML = noOfBulls
+		cell4.innerHTML = noOfBulls;
+
+		if (noOfBulls == 0 && noOfCows == 0) {
+			var x = row.insertCell(4);
+			var img = document.createElement('img');
+			img.src = "assets/thumbs-down.png";
+			img.width = 25;
+			img.height = 25;
+			x.appendChild(img);
+		} else {
+			if (noOfCows > 0) {
+				for (i=0; i<noOfCows; i++) {
+					var x = row.insertCell(i+4);
+					var img = document.createElement('img');
+					img.src = "assets/cow.png";
+					img.width = 25;
+					img.height = 25;
+					x.appendChild(img);
+				}
+			}
+
+			if (noOfBulls > 0) {
+				for (i=0; i<noOfBulls; i++) {
+					// row.insertCell(noOfCows+i+4).innerHTML = "bull";
+					var x = row.insertCell(noOfCows+i+4);
+					var img = document.createElement('img');
+					img.src = "assets/bull.png";
+					img.width = 25;
+					img.height = 25;
+					x.appendChild(img);
+				}
+			}
+		}
 	}
 })
 
@@ -106,7 +182,7 @@ function init()
 
 function reset()
 {
-    document.getElementById('number').value = '';
+    document.getElementById('nos').value = '';
     document.getElementById('cows').textContent = 'Cows: 0';
     document.getElementById('bulls').textContent = 'Bulls: 0';
     document.querySelector('.home').style.display = 'block';
@@ -119,7 +195,14 @@ function reset()
     }
 }
 
-
+function minmax(value, min, max) 
+{
+    if(parseInt(value) < min || isNaN(parseInt(value))) 
+        return min; 
+    else if(parseInt(value) > max) 
+        return max; 
+    else return value;
+}
 
 
 
