@@ -46,7 +46,7 @@ document.getElementById('submit').addEventListener('click', function() {
 		document.querySelector('.game').style.display = 'none';
 		if (minAttempts == null || noOfAttempts < minAttempts) {
 			minAttempts = noOfAttempts;
-			document.getElementById('top-score').textContent = "Minimum no of attempts: " + minAttempts ;
+			document.getElementById('top-score').textContent = "Your Best: " + minAttempts + " attempts" ;
 		}
 		reset();
 	}
