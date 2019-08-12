@@ -1,13 +1,11 @@
 var actualNumber, noOfCows = 0, noOfBulls = 0, noOfAttempts = 0, minAttempts = null, max, min;
 
 document.getElementById('easy').addEventListener('click', function() {
-	console.log('easy');
 	document.querySelector('.home').style.display = 'none';
 	document.querySelector('.game').style.display = 'block';
 	max = 999;
 	min = 100;
 	document.getElementById("input-number").textContent = 'Guess the secret 3 digit number';
-	// document.getElementById("level").textContent = 'Level : Easy';
 	document.getElementById("nos").placeholder = 'Enter 3 digit number';
 	init();
 })
@@ -36,40 +34,9 @@ document.getElementById('choose-level').addEventListener('click', function() {
     reset();
 })
 
-// var inp = document.getElementById('number');
-// 	console.log(inp);
-// 	inp.addEventListener('keyup', function(e) {
-// 		$("#number").attr({
-// 			"max" : 10,
-// 			"min" : 2
-// 		 });
-// 		console.log('num');
-		// var num = parseInt(this.value, 10);
-		// 	console.log(num);
-		// 	console.log(min + ' ' + max);
-		// 	// min = 0,
-		// 	// max = 100;
-	
-		// if (isNaN(num)) {
-		// 	this.value = "";
-		// 	return false;
-		// }
-	
-		// this.value = Math.max(num, min);
-		// this.value = Math.min(num, max);
-	// });
-
-	// $("#number").attr({
-	// 	"max" : max,
-	// 	"min" : min
-	//  });
-
 document.getElementById('submit').addEventListener('click', function() {
 	noOfCows = 0;
 	noOfBulls = 0;
-
-	console.log(actualNumber);
-	console.log(noOfAttempts);
 
 	var input = document.getElementById('nos').value;
 	if (actualNumber == input) {
@@ -77,16 +44,14 @@ document.getElementById('submit').addEventListener('click', function() {
 		alert('Hurray!!! You won this game in ' + noOfAttempts + ' attempts');
 		document.querySelector('.home').style.display = 'block';
 		document.querySelector('.game').style.display = 'none';
-		console.log(document.getElementById('top-score').value);
 		if (minAttempts == null || noOfAttempts < minAttempts) {
 			minAttempts = noOfAttempts;
-			document.getElementById('top-score').textContent = minAttempts ;
+			document.getElementById('top-score').textContent = "Minimum no of attempts: " + minAttempts ;
 		}
 		reset();
 	}
 
 	else {
-        console.log('check');
     	var inputDigits = [],
 		inputNumber = input.toString();
 		
@@ -170,13 +135,13 @@ document.getElementById('submit').addEventListener('click', function() {
 			}
 		}
 	}
+	document.getElementById('nos').value = "";
 })
 
 
 function init()
 {
 	actualNumber = Math.floor(Math.random() * (max - min + 1) + min);
-	console.log(actualNumber);
 	noOfAttempts = 0;
 }
 
@@ -194,15 +159,3 @@ function reset()
        Parent.removeChild(Parent.firstChild);
     }
 }
-
-function minmax(value, min, max) 
-{
-    if(parseInt(value) < min || isNaN(parseInt(value))) 
-        return min; 
-    else if(parseInt(value) > max) 
-        return max; 
-    else return value;
-}
-
-
-
